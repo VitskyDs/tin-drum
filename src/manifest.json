@@ -22,5 +22,6 @@
   "version" : "1.0",
   "description" : "Tin Drum helps you create your typography system fast",
   "authorEmail" : "https://www.vitsky.studio",
-  "name" : "Tin Drum"
+  "name" : "Tin Drum",
+  "homepage": "https://github.com/VitskyDs/tin-drum.git"
 }
