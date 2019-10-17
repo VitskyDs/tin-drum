@@ -1,9 +1,6 @@
-import sketch from 'sketch'
+function onRun () {
 
-export default function() {
-  const sketch = require('sketch')
-  var UI = require('sketch/ui')
-
+  const UI = require('sketch/ui');
   const Document = require('sketch/dom').Document;
 
   const document = Document.getSelectedDocument();
@@ -40,7 +37,7 @@ export default function() {
 
       // loop through alignments and go only for those that are true
       for (var i = 0; i < alignmentEntries.length; i++) {
-// check if alignment value is true
+        // check if alignment value is true
         if (alignmentEntries[i][1]) {
 
           // loop through colors and create styles
@@ -67,4 +64,4 @@ export default function() {
   } else {
     UI.message(`🤦🏼‍♀️ Nothing happend...`)
   }
-};
+}
