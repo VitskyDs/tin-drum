@@ -1,17 +1,26 @@
 {
-  "$schema": "https://raw.githubusercontent.com/BohemianCoding/SketchAPI/develop/docs/sketch-plugin-manifest-schema.json",
-  "icon": "icon.png",
-  "commands": [
+  "author" : "Vitsky",
+  "commands" : [
     {
-      "name": "my-command",
-      "identifier": "tin-drum.my-command-identifier",
-      "script": "./my-command.js"
+      "script" : "script.js",
+      "name" : "Tin Drum",
+      "handlers" : {
+        "run" : "onRun"
+      },
+      "identifier" : "run"
     }
   ],
-  "menu": {
-    "title": "tin-drum",
-    "items": [
-      "tin-drum.my-command-identifier"
-    ]
-  }
+  "menu" : {
+    "title" : "Tin Drum",
+    "items" : [
+      "run"
+    ],
+    "isRoot": true
+  },
+  "identifier" : "studio.vitsky.tin-drum",
+  "icon": "icon.png",
+  "version" : "1.0",
+  "description" : "Tin Drum helps you create your typography system fast",
+  "authorEmail" : "https://www.vitsky.studio",
+  "name" : "Tin Drum"
 }

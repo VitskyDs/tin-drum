@@ -1,92 +1,30 @@
-# tin-drum
+# Tin Drum
+Tin Drum is a Sketch plugin that helps you create you typography system fast.
+Please send suggestions, congratulations and complaints to: **hi@vitsky.studio**
+
+![Image](https://media.giphy.com/media/UQsHIDmAG3nvQOj6Bf/giphy.gif)
+
 
 ## Installation
+1. Download [tin-drum-plugin.zip](https://github.com/VitskyDs/tin-drum/raw/master/release/latest/download/tin-drum.sketchplugin.zip) the latest release of the plugin
+2. Un-zip
+3. Double-click on Tin Drum.sketchplugin
 
-- [Download](../../releases/latest/download/tin-drum.sketchplugin.zip) the latest release of the plugin
-- Un-zip
-- Double-click on tin-drum.sketchplugin
+## Usage
+1. Create as many text layers as you'd like
+2. Select the text layers
+3. Plugins > Tin Drum
+4. And your styles are ready!
 
-## Development Guide
+## About
+Tin Drum was created to my personal usage after years of frustratingly trying to manage my text styles. I used to use Styles Generator combined with Rename-It.
+Tin Drums creates styles in the following format:
 
-_This plugin was created using `skpm`. For a detailed explanation on how things work, checkout the [skpm Readme](https://github.com/skpm/skpm/blob/master/README.md)._
+```{ Layer Name } / { Alignment } / { Color }```
 
-### Usage
+Since developing a UI for Sketch plugins is a mess I haven't created any UI. Right now, in order to add or edit the colors, it has to be done programatically. And that's why I'm planning on slowly but surely developing the perfect UI for the plugin, and I would love to hear your thoughts! So please send suggestions, congratulations and complaints to:
+hi@vitsky.studio
 
-Install the dependencies
 
-```bash
-npm install
-```
-
-Once the installation is done, you can run some commands inside the project folder:
-
-```bash
-npm run build
-```
-
-To watch for changes:
-
-```bash
-npm run watch
-```
-
-Additionally, if you wish to run the plugin every time it is built:
-
-```bash
-npm run start
-```
-
-### Custom Configuration
-
-#### Babel
-
-To customize Babel, you have two options:
-
-- You may create a [`.babelrc`](https://babeljs.io/docs/usage/babelrc) file in your project's root directory. Any settings you define here will overwrite matching config-keys within skpm preset. For example, if you pass a "presets" object, it will replace & reset all Babel presets that skpm defaults to.
-
-- If you'd like to modify or add to the existing Babel config, you must use a `webpack.skpm.config.js` file. Visit the [Webpack](#webpack) section for more info.
-
-#### Webpack
-
-To customize webpack create `webpack.skpm.config.js` file which exports function that will change webpack's config.
-
-```js
-/**
- * Function that mutates original webpack config.
- * Supports asynchronous changes when promise is returned.
- *
- * @param {object} config - original webpack config.
- * @param {boolean} isPluginCommand - whether the config is for a plugin command or a resource
- **/
-module.exports = function(config, isPluginCommand) {
-  /** you can change config here **/
-}
-```
-
-### Debugging
-
-To view the output of your `console.log`, you have a few different options:
-
-- Use the [`sketch-dev-tools`](https://github.com/skpm/sketch-dev-tools)
-- Run `skpm log` in your Terminal, with the optional `-f` argument (`skpm log -f`) which causes `skpm log` to not stop when the end of logs is reached, but rather to wait for additional data to be appended to the input
-
-### Publishing your plugin
-
-```bash
-skpm publish <bump>
-```
-
-(where `bump` can be `patch`, `minor` or `major`)
-
-`skpm publish` will create a new release on your GitHub repository and create an appcast file in order for Sketch users to be notified of the update.
-
-You will need to specify a `repository` in the `package.json`:
-
-```diff
-...
-+ "repository" : {
-+   "type": "git",
-+   "url": "git+https://github.com/ORG/NAME.git"
-+  }
-...
-```
+### License
+[MIT](https://choosealicense.com/licenses/mit/)
