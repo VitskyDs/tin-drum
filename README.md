@@ -4,7 +4,7 @@ Please send suggestions, congratulations and complaints to: **hi@vitsky.studio**
 
 ![Image](https://media.giphy.com/media/UQsHIDmAG3nvQOj6Bf/giphy.gif)
 
-[![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install PLUGIN NAME with Sketchpacks")](https://sketchpacks.com/YOUR_NAME/PLUGIN_NAME/install)
+[![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Tin Drum with Sketchpacks")](https://www.sketchpacks.com/VitskyDs/tin-drum/install)
 
 ## Installation
 1. [Download](https://www.sketchpacks.com/VitskyDs/tin-drum) the latest release of the plugin
