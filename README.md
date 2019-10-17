@@ -4,12 +4,12 @@ Please send suggestions, congratulations and complaints to: **hi@vitsky.studio**
 
 ![Image](https://media.giphy.com/media/UQsHIDmAG3nvQOj6Bf/giphy.gif)
 
-[![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Tin Drum with Sketchpacks")](https://www.sketchpacks.com/VitskyDs/tin-drum/install)
+[![Install Tin Drum with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Tin Drum with Sketchpacks")](https://www.sketchpacks.com/VitskyDs/tin-drum/install)
 
 ## Installation
 1. [Download](https://www.sketchpacks.com/VitskyDs/tin-drum) the latest release of the plugin
 2. Un-zip
-3. Double-click on Tin Drum.sketchplugin
+3. Double-click on tin-drum.sketchplugin
 
 ## Usage
 1. Create as many text layers as you'd like
