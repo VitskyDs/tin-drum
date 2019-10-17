@@ -63,7 +63,7 @@ export default function() {
     }
   }
   if (createdStyles > 0) {
-    UI.message(`🤟 Rock On 🤟 ${createdStyles} styles created!`)
+    UI.message(`🤟 Rock On 🤟 ${createdStyles} styles were created!`)
   } else {
     UI.message(`🤦🏼‍♀️ Nothing happend...`)
   }
