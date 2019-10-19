@@ -1,10 +1,12 @@
 import sketch from 'sketch'
 
 export default function() {
+
   const sketch = require('sketch')
-  var UI = require('sketch/ui')
+  const UI = require('sketch/ui')
 
   const Document = require('sketch/dom').Document;
+
 
   const document = Document.getSelectedDocument();
   const page = document.selectedPage;
