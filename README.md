@@ -2,7 +2,7 @@
 Tin Drum is a Sketch plugin that helps you create you typography system fast.
 Please send suggestions, congratulations and complaints to: **hi@vitsky.studio**
 
-![Image](https://media.giphy.com/media/UQsHIDmAG3nvQOj6Bf/giphy.gif)
+![Image](https://media.giphy.com/media/lMCkEtVJLh7uo1CCUY/giphy.gif)
 
 [![Install Tin Drum with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Tin Drum with Sketchpacks")](https://www.sketchpacks.com/VitskyDs/tin-drum/install)
 
@@ -12,13 +12,14 @@ Please send suggestions, congratulations and complaints to: **hi@vitsky.studio**
 3. Double-click on tin-drum.sketchplugin
 
 ## Usage
-1. Create as many text layers as you'd like
-2. Select the text layers
-3. Plugins > Tin Drum
-4. And your styles are ready!
+1. Create as many Text layers as you'd like
+2. (Optional) Create Shape layers and Tin Drum will use their fill as a color and name as the color's name
+3. Select the Text layers with the Shape layers
+4. Plugins > Tin Drum > Run
+5. And your styles are ready!
 
 ## About
-Tin Drum was created to my personal usage after years of frustratingly trying to manage my text styles. I used to use Styles Generator combined with Rename-It.
+Tin Drum was created for my personal use after years of frustratingly trying to manage my text styles. I used to use Styles Generator combined with Rename-It.
 Tin Drums creates styles in the following format:
 
 ```{ Layer Name } / { Alignment } / { Color }```
