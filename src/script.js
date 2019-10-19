@@ -10,8 +10,11 @@ export default function() {
   const page = document.selectedPage;
   const selection = document.selectedLayers;
   const selectedLayers = selection.layers;
+  const selectedTextLayers = selection.layers.filter(layer => layer.type === "Text");
+  const selectedShapeLayers = selection.layers.filter(layer => layer.type === "ShapePath");
 
   let createdStyles = 0;
+
 
   // model
   let model = {
@@ -28,7 +31,16 @@ export default function() {
     }
   };
 
-  if (selectedLayers.every(layer => layer.type === 'Text')) {
+
+  // validate selected layers have at least one text layer
+  if (selectedLayers.length <= 0 && selectedTextLayers.length == 0) {
+    UI.message(`Select some text and shape layers plz...`)
+  } else if (selectedLayers.length > 0 && selectedTextLayers.length == 0) {
+    UI.message(`Select some text layers as well plz...`)
+  } else {
+
+    selectedTextLayers.forEach();
+
 
     const alignmentEntries = Object.entries(model.alignment);
     const colorEntries = Object.entries(model.colors);
@@ -40,7 +52,7 @@ export default function() {
 
       // loop through alignments and go only for those that are true
       for (var i = 0; i < alignmentEntries.length; i++) {
-// check if alignment value is true
+        // check if alignment value is true
         if (alignmentEntries[i][1]) {
 
           // loop through colors and create styles
@@ -67,4 +79,5 @@ export default function() {
   } else {
     UI.message(`🤦🏼‍♀️ Nothing happend...`)
   }
+
 };
