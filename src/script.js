@@ -1,21 +1,23 @@
-import BrowserWindow from 'sketch-module-web-view'
-import { getWebview } from 'sketch-module-web-view/remote'
-
+//import BrowserWindow from 'sketch-module-web-view'
+//import { getWebview } from 'sketch-module-web-view/remote'
+// import { openWebview, onShutdown } from './web-view'
 import sketch from 'sketch'
 import UI from 'sketch/ui'
 
-const webviewIdentifier = 'webview.webview'
-
 export default function() {
 
-  const Document = require('sketch/dom').Document;
+  // openWebview();
 
+  const Document = require('sketch/dom').Document;
   const document = Document.getSelectedDocument();
+  const documentColors = document.colors;
   const page = document.selectedPage;
   const selection = document.selectedLayers;
   const selectedLayers = selection.layers;
   const selectedTextLayers = selection.layers.filter(layer => layer.type === "Text");
   const selectedShapeLayers = selection.layers.filter(layer => layer.type === "ShapePath");
+
+  console.log(documentColors);
 
   let createdStyles = 0;
 
@@ -72,8 +74,10 @@ export default function() {
   // validate selected layers have at least one text layer
   if (selectedLayers.length <= 0 && selectedTextLayers.length == 0) {
     UI.message(`Select some text and shape layers plz...`)
+    return
   } else if (selectedLayers.length > 0 && selectedTextLayers.length == 0) {
     UI.message(`Select some text layers as well plz...`)
+    return
   } else {
     // UI.message(`⏳This might take a few seconds`)
     // loop through the selected shape layers and update colors
@@ -94,38 +98,4 @@ export default function() {
   } else {
     UI.message(`🤦🏼‍♀️ Nothing happend...`)
   }
-
-  // webview
-  const options = {
-    identifier: webviewIdentifier,
-    width: 240,
-    height: 180,
-    show: false
-  }
-
-  const browserWindow = new BrowserWindow(options)
-
-  // only show the window when the page has loaded to avoid a white flash
-  browserWindow.once('ready-to-show', () => {
-    browserWindow.show()
-  })
-
-  const webContents = browserWindow.webContents
-
-  // print a message when the page loads
-  webContents.on('did-finish-load', () => {
-    UI.message('UI loaded!')
-  })
-
-  // add a handler for a call from web content's javascript
-  webContents.on('nativeLog', s => {
-    UI.message(s)
-    webContents
-      .executeJavaScript(`setRandomNumber(${Math.random()})`)
-      .catch(console.error)
-  })
-
-  browserWindow.loadURL(require('../resources/webview.html'))
-
-
 }
