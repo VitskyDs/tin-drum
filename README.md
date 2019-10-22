@@ -2,8 +2,6 @@
 Tin Drum is a Sketch plugin that helps you create you typography system fast.
 Please send suggestions, congratulations and complaints to: **hi@vitsky.studio**
 
-![Image](https://media.giphy.com/media/lMCkEtVJLh7uo1CCUY/giphy.gif)
-
 <img src="https://media.giphy.com/media/lMCkEtVJLh7uo1CCUY/giphy.gif" alt="gip" width="100%"/>
 
 [![Install Tin Drum with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Tin Drum with Sketchpacks")](https://www.sketchpacks.com/VitskyDs/tin-drum/install)
