@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>webview</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  Tin Drum
+  <form action="">
+    <input type="text" placeholder="text" value="hi" id="userInput">
+  </form>
+
+  <button id="runTinDrum">Run</button>
+  <div id="answer"></div>
+
+  <script type="text/javascript">
+    // model
+    let properties = {
+      "alignment": {
+        "left": true,
+        "center": true,
+        "right": true,
+        "justify": false
+      },
+      "colors": {
+        "Dark": "#888888",
+        "Gray": "#ffff00",
+        "Light": "#ffffff"
+      }
+    };
+
+    // disable the context menu (eg. the right click menu) to have a more native feel
+    document.addEventListener('contextmenu', (e) => {
+      e.preventDefault()
+    })
+
+    // call the plugin from the webview
+    document.getElementById('runTinDrum').addEventListener('click', () => {
+      // set properties according to user selection
+
+      //const userInput = document.getElementById('userInput').value;
+      window.postMessage('runTinDrum', properties)
+    })
+  </script>
+</body>
+
+</html>
