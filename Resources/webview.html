@@ -71,7 +71,7 @@
   }
 
   /* Buttons */
-  #drum-roll {
+  button#drum-roll {
     background: #FF0052;
     border-radius: 3px;
     padding: 8px;
@@ -84,6 +84,11 @@
     text-align: center;
     line-height: 24px;
     width: 100%;
+  }
+
+  button#drum-roll:hover {
+    cursor: pointer;
+    box-shadow: 0 0 12px 0 rgba(255,0,82,0.2);
   }
 
   /* Main */
@@ -116,6 +121,10 @@
     border-radius: 8px;
   }
 
+.alignment-item:hover {
+  cursor: pointer;
+}
+
   .alignment-item.on {
     padding: 16px;
     border: 1px solid #ff0052;
@@ -137,6 +146,9 @@
     background: none;
     border: none;
   }
+  button#sync:hover {
+    cursor: pointer;
+}
 
   .color-list {
     display: flex;
@@ -167,6 +179,7 @@
   }
 
   button.remove-color {
+    cursor: pointer;
     background: none;
     border: none;
     font-size: 16px;
@@ -174,8 +187,6 @@
     margin: 0 8px;
     color: #999;
   }
-
-
 
   /* Footer */
 
@@ -233,7 +244,6 @@
       <div class="section-header">
         <h1>Colors</h1>
         <button id="sync">
-
           <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
               <g id="Tin-Drum-V03" transform="translate(-220.000000, -166.000000)" fill="#FF0052">
@@ -308,14 +318,12 @@
         "justify": false
       },
       "colors": {
-        "Dark": "#888888",
-        "Gray": "#ffff00",
-        "Light": "#ffffff"
+        "Dark": "#000000",
+        "Gray": "#999999",
+        "Light": "#ffffff",
+        "Brand": "#ff0052"
       }
     };
-    let colorOneName = document.getElementById('color-01-name').value
-    let colorOneHex = document.getElementById('color-01-hex').value
-
 
     // disable the context menu (eg. the right click menu) to have a more native feel
     document.addEventListener('contextmenu', (e) => {
@@ -323,14 +331,20 @@
     })
 
     // input event listeneres
-    document.getElementById('update').addEventListener('click', () => {
-      properties.colors[colorOneName] = colorOneHex;
-    })
+    document.getElementById('sync').addEventListener('click', () => {})
 
     // call the plugin from the webview
     document.getElementById('runTinDrum').addEventListener('click', () => {
       // set properties according to user selection
       properties.colors[colorOneName] = colorOneHex;
+      //const userInput = document.getElementById('userInput').value;
+      window.postMessage('runTinDrum', properties)
+    })
+
+    // call the plugin from the webview
+    document.getElementById('drum-roll').addEventListener('click', () => {
+      // set properties according to user selection
+      // properties.colors[colorOneName] = colorOneHex;
       //const userInput = document.getElementById('userInput').value;
       window.postMessage('runTinDrum', properties)
     })

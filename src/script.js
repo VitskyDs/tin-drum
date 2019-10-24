@@ -12,6 +12,8 @@ let createdStyles = 0;
 let model = {};
 
 export default function() {
+
+  console.log(document)
   // run webview
   const webviewIdentifier = 'webview.webview'
 
