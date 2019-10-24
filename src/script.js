@@ -17,6 +17,7 @@ export default function() {
 
   let createdStyles = 0;
 
+
   // model
   let model = {
     "alignment": {
@@ -31,6 +32,15 @@ export default function() {
       "Light": "#ffffff"
     }
   };
+
+  const documentColors = document.colors;
+
+
+  // populate model colors from saved colors
+  documentColors.forEach(color => {
+    model.colors[color.name] = color.color;
+    console.log(model);
+  })
 
   function generateColors(shapeLayer) {
     model.colors[shapeLayer.name] = shapeLayer.style.fills[0].color;
