@@ -1,26 +1,15 @@
 import sketch from 'sketch'
-const UI = require('sketch/ui')
 import BrowserWindow from 'sketch-module-web-view'
 import {getWebview} from 'sketch-module-web-view/remote'
-
+var Document = require('sketch/dom').Document
 const document = Document.getSelectedDocument();
+
+const UI = require('sketch/ui')
 
 let createdStyles = 0;
 
 // model
-let model = {
-  "alignment": {
-    "left": true,
-    "center": true,
-    "right": true,
-    "justify": false
-  },
-  "colors": {
-    "Dark": "#000000",
-    "Gray": "#aaaaaa",
-    "Light": "#ffffff"
-  }
-};
+let model = {};
 
 export default function() {
   // run webview
@@ -28,8 +17,8 @@ export default function() {
 
   const options = {
     identifier: webviewIdentifier,
-    width: 240,
-    height: 180,
+    width: 260,
+    height: 480,
     show: false
   }
 
@@ -106,7 +95,6 @@ function generateTextStyles(textLayer) {
 
 function mainFunction() {
   // define consts
-  const page = document.selectedPage;
   const selection = document.selectedLayers;
   const selectedLayers = selection.layers;
   const selectedTextLayers = selection.layers.filter(layer => layer.type === "Text");
