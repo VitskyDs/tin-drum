@@ -1,6 +1,8 @@
 import sketch from 'sketch'
 import BrowserWindow from 'sketch-module-web-view'
-import {getWebview} from 'sketch-module-web-view/remote'
+import {
+  getWebview
+} from 'sketch-module-web-view/remote'
 var Document = require('sketch/dom').Document
 const document = Document.getSelectedDocument();
 
@@ -13,7 +15,12 @@ let model = {};
 
 export default function() {
 
-  console.log(document)
+  // populate model colors from saved colors
+  documentColors.forEach(color => {
+    model.colors[color.name] = color.color;
+    console.log(model);
+  })
+
   // run webview
   const webviewIdentifier = 'webview.webview'
 
