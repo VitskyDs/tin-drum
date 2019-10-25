@@ -1,23 +1,24 @@
 {
-  "compatibleVersion": 3,
-  "bundleVersion": 1,
-  "commands": [
-    {
-      "name": "my-command",
-      "identifier": "tin-drum.my-command-identifier",
-      "script": "./my-command.js",
-      "handlers": {
-        "run": "onRun",
-        "actions": {
-          "Shutdown": "onShutdown"
-        }
-      }
-    }
-  ],
+  "author": "Vitsky",
+  "identifier": "studio.vitsky.tin-drum",
+  "icon": "icon.png",
+  "description": "Tin Drum helps you create your typography system fast",
+  "authorEmail": "https://www.vitsky.studio",
+  "name": "Tin Drum",
+  "homepage": "https://github.com/VitskyDs/tin-drum.git",
+  "compatibleVersion": "52",
+  "commands": [{
+    "name": "Run",
+    "script": "script.js",
+    "identifier": "run",
+    "shortcut": "ctrl shift t"
+  }, {
+    "script": "whats-new.js",
+    "name": "Whats New",
+    "identifier": "new"
+  }],
   "menu": {
-    "title": "tin-drum",
-    "items": [
-      "tin-drum.my-command-identifier"
-    ]
+    "title": "Tin Drum",
+    "items": ["run", "new"]
   }
 }
