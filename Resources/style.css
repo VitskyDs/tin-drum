@@ -15,7 +15,6 @@ body {
   max-width: 260px;
   height: 480px;
   background-color: white;
-
 }
 
 *, *:before, *:after {
@@ -64,7 +63,7 @@ a {
 }
 
 /* Buttons */
-#drum-roll {
+button#drum-roll {
   background: #FF0052;
   border-radius: 3px;
   padding: 8px;
@@ -77,6 +76,11 @@ a {
   text-align: center;
   line-height: 24px;
   width: 100%;
+}
+
+button#drum-roll:hover {
+  cursor: pointer;
+  box-shadow: 0 0 12px 0 rgba(255,0,82,0.2);
 }
 
 /* Main */
@@ -109,6 +113,10 @@ div.section-header {
   border-radius: 8px;
 }
 
+.alignment-item:hover {
+  cursor: pointer;
+}
+
 .alignment-item.on {
   padding: 16px;
   border: 1px solid #ff0052;
@@ -129,6 +137,9 @@ button#sync {
   border-radius: 50%;
   background: none;
   border: none;
+}
+button#sync:hover {
+  cursor: pointer;
 }
 
 .color-list {
@@ -160,6 +171,7 @@ button#sync {
 }
 
 button.remove-color {
+  cursor: pointer;
   background: none;
   border: none;
   font-size: 16px;
@@ -167,8 +179,6 @@ button.remove-color {
   margin: 0 8px;
   color: #999;
 }
-
-
 
 /* Footer */
 
