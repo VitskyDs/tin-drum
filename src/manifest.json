@@ -6,6 +6,7 @@
   "authorEmail": "https://www.vitsky.studio",
   "name": "Tin Drum",
   "homepage": "https://github.com/VitskyDs/tin-drum.git",
+  "repository": "https://github.com/VitskyDs/tin-drum.git",
   "compatibleVersion": "52",
   "commands": [{
     "name": "Run",
