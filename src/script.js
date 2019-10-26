@@ -43,7 +43,9 @@ export default function () {
         resizable: true,
         alwaysOnTop: true,
         titleBarStyle: 'default',
-        movable: true
+        movable: true,
+        remembersWindowFrame: true,
+        center: true
     };
 
     const browserWindow = new BrowserWindow(options);
