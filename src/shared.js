@@ -1,23 +1,17 @@
-const generateTextStyles = (textLayer, model) => {
-
-}
-
 function sayHi(message) {
     console.log(`say: ${JSON.stringify(message)}`);
 }
 
 // populate model colors from saved colors
 const getDocumentColors = (colors) => {
-    let documentColors = {
-        "colors": {}
-    };
+    let model = {};
     //console.log(colors)
     colors.forEach(function (color) {
-        documentColors.colors[color.name] = color.color;
+        model[color.name] = color.color;
     });
-    return colors
+    return model;
 };
 
-module.exports = {sayHi, getDocumentColors, generateTextStyles};
+module.exports = {sayHi, getDocumentColors};
 
 

@@ -1,17 +1,25 @@
 import BrowserWindow from 'sketch-module-web-view';
 import {getWebview} from 'sketch-module-web-view/remote';
-import {sayHi} from './shared';
+import {sayHi, getDocumentColors} from './shared';
 
 const UI = require('sketch/ui')
 
 const webviewIdentifier = 'tin-drum.webview';
 const Document = require('sketch/dom').Document;
-const document = Document.getSelectedDocument();
-const selection = document.selectedLayers;
-const selectedTextLayers = selection.layers.filter(layer => layer.type === "Text");
+
+let document = Document.getSelectedDocument();
+let page = document.selectedPage;
+let selection = page.selectedLayers;
+let selectedTextLayers = selection.layers.filter(layer => layer.type === "Text");
+
+const reselect = () => {
+    document = Document.getSelectedDocument();
+    page = document.selectedPage;
+    selection = page.selectedLayers;
+    selectedTextLayers = selection.layers.filter(layer => layer.type === "Text");
+}
 
 let createdStyles = 0;
-let documentColors = document.colors;
 
 let model = {
     "alignment": {
@@ -23,12 +31,21 @@ let model = {
     "colors": {}
 };
 
+
+model.colors = getDocumentColors(document.colors);
+
+console.log(model)
+
 export default function () {
     const options = {
         identifier: webviewIdentifier,
-        width: 260,
-        height: 480,
-        show: false
+        width: 308,
+        height: 400,
+        show: true,
+        resizable: true,
+        alwaysOnTop: true,
+        titleBarStyle: 'default',
+        movable: true
     };
 
     const browserWindow = new BrowserWindow(options);
@@ -40,34 +57,33 @@ export default function () {
 
     const webContents = browserWindow.webContents;
 
+    browserWindow.loadURL(require('../resources/webview.html'))
+
+
     // print a message when the page loads
     webContents.on('did-finish-load', () => {
-        UI.message('UI loaded!!!')
+        // UI.message('UI loaded!!!')
     });
-
 
     // add a handler for a call from web content's javascript
     webContents.on('runTinDrum', (properties) => {
-        UI.message('tododom tododom');
+
+        // reselect text layers
+        reselect();
 
         // set model alignment
         model.alignment = properties;
 
         // get document colors
-        documentColors.forEach(color => {
-            model.colors[color.name] = color.color;
-        });
+        model.colors = getDocumentColors(document.colors);
 
         // create arrays out of alignment and color entries
         const alignmentEntries = Object.entries(model.alignment);
         const colorEntries = Object.entries(model.colors);
 
-        sayHi(alignmentEntries)
-        sayHi(colorEntries)
-
         // generateTextStyles function: pass the textLayer model and the model
-        selectedTextLayers.forEach( textLayer => {
-            sayHi(textLayer);
+        selectedTextLayers.forEach(textLayer => {
+
             // let originalStyle = textLayer.style;
 
             // loop through alignments and go only for those that are true
@@ -94,11 +110,10 @@ export default function () {
             }
         });
 
-        // say hi
-
+        // send a message when complete
+        UI.message('tododom tododom');
     });
 
-    browserWindow.loadURL(require('../resources/webview.html'))
 }
 
 // When the plugin is shutdown by Sketch (for example when the user disable the plugin)
