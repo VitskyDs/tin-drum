@@ -19,8 +19,6 @@ const reselect = () => {
     selectedTextLayers = selection.layers.filter(layer => layer.type === "Text");
 }
 
-let createdStyles = 0;
-
 let model = {
     "alignment": {
         "left": true,
@@ -40,7 +38,7 @@ export default function () {
     const options = {
         identifier: webviewIdentifier,
         width: 308,
-        height: 400,
+        height: 480,
         show: true,
         resizable: true,
         alwaysOnTop: true,
@@ -67,6 +65,9 @@ export default function () {
 
     // add a handler for a call from web content's javascript
     webContents.on('runTinDrum', (properties) => {
+
+        // count created styles
+        let createdStyles = 0;
 
         // reselect text layers
         reselect();
@@ -109,9 +110,12 @@ export default function () {
                 }
             }
         });
-
-        // send a message when complete
-        UI.message('tododom tododom');
+        // message at the end
+        if (createdStyles > 0) {
+            UI.message(`🤟 Rock On 🤟 ${createdStyles} styles were created!!!`)
+        } else {
+            UI.message(`🤦🏼‍♀️ Nothing happend...`)
+        }
     });
 
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Muli:400,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap');
 
 /* some default styles to make the view more native like */
 html {
@@ -41,11 +41,8 @@ h1 {
 }
 
 p {
-    font-family: Muli-Regular, sans-serif;
-    font-size: 14px;
-    color: #131E41;
-    letter-spacing: 0;
-    line-height: 24px;
+    font: 300 14px/20px Muli-Regular, sans-serif;
+    color: #9A9A9A;
 }
 
 small {
@@ -69,21 +66,23 @@ a {
 button#drum-roll {
     background: white;
     border: none;
+    border-radius: 12px;
     font-family: Muli-Bold, sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #ff0052;
     letter-spacing: 0;
     text-align: center;
-    line-height: 68px;
+    line-height: 48px;
     width: 100%;
-    box-shadow: 0 0 16px 0 rgba(255, 0, 82, 0.1);
+    box-shadow: 0 4px 16px 0 rgba(255, 0, 82, 0.1);
     transition: all 200ms ease-in-out;
+    margin: 24px 0 0 0 ;
 }
 
 button#drum-roll:hover {
     cursor: pointer;
-    box-shadow: 0 0 12px 0 rgba(255, 0, 82, 0.25);
+    box-shadow: 0 6px 12px 0 rgba(255, 0, 82, 0.25);
 }
 
 /* Main */
