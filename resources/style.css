@@ -108,9 +108,9 @@ div.section-header {
 }
 
 .alignment-item {
-  padding: 16px;
+  padding: 15px 16px;
   border: 1px solid #ff0052;
-  border-radius: 8px;
+  border-radius: 50%;
 }
 
 .alignment-item:hover {
@@ -118,9 +118,6 @@ div.section-header {
 }
 
 .alignment-item.on {
-  padding: 16px;
-  border: 1px solid #ff0052;
-  border-radius: 8px;
   background-color: #ff0052;
 }
 
