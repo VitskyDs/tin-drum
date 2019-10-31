@@ -32,8 +32,6 @@ let model = {
 
 model.colors = getDocumentColors(document.colors);
 
-console.log(model)
-
 export default function () {
     const options = {
         identifier: webviewIdentifier,
@@ -59,6 +57,10 @@ export default function () {
 
     browserWindow.loadURL(require('../resources/webview.html'))
 
+    // push colors to UI
+    browserWindow.webContents
+      .executeJavaScript(`pushColors(${JSON.stringify(model.colors)})`)
+      .then(res => console.log(res))
 
     // print a message when the page loads
     // webContents.on('did-finish-load', () => {
@@ -79,6 +81,11 @@ export default function () {
 
         // get document colors
         model.colors = getDocumentColors(document.colors);
+
+        // push colors to UI
+        browserWindow.webContents
+          .executeJavaScript(`pushColors(${JSON.stringify(model.colors)})`)
+          .then(res => console.log(res, 'hi'))
 
         // create arrays out of alignment and color entries
         const alignmentEntries = Object.entries(model.alignment);

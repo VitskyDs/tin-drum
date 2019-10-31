@@ -23,10 +23,16 @@ Array.from(alignmentItems).forEach(function (element) {
 });
 
 // disable the context menu (eg. the right click menu) to have a more native feel
-
 // document.addEventListener('contextmenu', (e) => {
-//     e.preventDefault()
-// })
+  //     e.preventDefault()
+  // })
+
+// push colors to model
+window.pushColors = function(arg) {
+  model.colors = arg;
+  
+}
+
 
 // call the plugin from the webview
 document.getElementById('drum-roll').addEventListener('click', () => {
@@ -58,4 +64,3 @@ document.getElementById('drum-roll').addEventListener('click', () => {
     // post message
     window.postMessage('runTinDrum', model.alignment);
 });
-
