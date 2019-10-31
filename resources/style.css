@@ -29,7 +29,9 @@ body {
     -webkit-user-select: none;
     user-select: none;
 }
-
+.d-none {
+  display: none;
+}
 /* Typography */
 h1 {
     font-family: Muli-SemiBold, sans-serif;

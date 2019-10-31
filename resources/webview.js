@@ -1,5 +1,6 @@
 //
 const colorList = document.getElementById('color-list');
+let colorEntries;
 
 // model
 let model = {
@@ -32,7 +33,7 @@ Array.from(alignmentItems).forEach(function(element) {
 // push colors to model
 window.pushColors = function(arg) {
   model.colors = arg;
-  const colorEntries = Object.entries(model.colors);
+  colorEntries = Object.entries(model.colors);
 
   // create Div
   let colorItems = ``;
@@ -43,12 +44,17 @@ window.pushColors = function(arg) {
       <div class="color-name">
         <p>${colorEntries[i][0]}</p>
       </div>
-      <button class="remove-color">×</button>
+      <button class="remove-color" id="">×</button>
     </div>
     <div></div>
     `
   }
+
   colorList.innerHTML = colorItems;
+
+  const colorItemsDiv = Array.from(document.getElementsByClassName('remove-color'));
+  colorItemsDiv.forEach((element) => element.addEventListener('click', () => element.parentNode.style.display = 'none'));
+
 }
 
 // call the plugin from the webview
@@ -81,3 +87,5 @@ document.getElementById('drum-roll').addEventListener('click', () => {
   // post message
   window.postMessage('runTinDrum', model.alignment);
 });
+
+//
