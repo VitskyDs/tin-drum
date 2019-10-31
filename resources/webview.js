@@ -44,17 +44,23 @@ window.pushColors = function(arg) {
       <div class="color-name">
         <p>${colorEntries[i][0]}</p>
       </div>
-      <button class="remove-color" id="">×</button>
+      <button class="remove-color" id="${colorEntries[i][0]}">×</button>
     </div>
     <div></div>
     `
   }
 
+  // inject colors
   colorList.innerHTML = colorItems;
 
+  // add event listener for X button to hide color item
   const colorItemsDiv = Array.from(document.getElementsByClassName('remove-color'));
-  colorItemsDiv.forEach((element) => element.addEventListener('click', () => element.parentNode.style.display = 'none'));
-
+  colorItemsDiv.forEach((element) => element.addEventListener('click', () => {
+    element.parentNode.parentNode.removeChild(element.parentNode);
+    //let colorProperty = element.id
+    delete model.colors[element.id]
+    console.log(model)
+  }));
 }
 
 // call the plugin from the webview
