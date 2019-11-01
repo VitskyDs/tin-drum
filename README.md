@@ -27,7 +27,8 @@ You can install Tin Drum using Sketchpacks
 1. Create as many Text layers as you'd like, preferably one for each text appearance i.e. H1, H2, H3, P and so forth
 2. Add as many colors into Document Colors 
 3. Plugins > Tin Drum > Run
-4. And your styles are ready!
+4. Select alignments, Remove unnecessary colors and hit Drum Roll
+4. Your styles are ready!
 
 ## About
 Tin Drum was created for my personal use after years of frustratingly trying to manage my text styles. I used to use Styles Generator combined with Rename-It.
