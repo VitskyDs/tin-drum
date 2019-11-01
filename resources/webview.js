@@ -37,7 +37,7 @@ window.pushColors = function(arg) {
 
   // create Div
   let colorItems = ``;
-  for (var i = 0; i < 3; i++) {
+  for (var i = 0; i < colorEntries.length; i++) {
     colorItems += `
     <div class="color-item">
       <div class="color-circle" style="background-color: ${colorEntries[i][1]};"></div>
@@ -50,16 +50,20 @@ window.pushColors = function(arg) {
     `
   }
 
-  // inject colors
+  // inject color div's
   colorList.innerHTML = colorItems;
 
   // add event listener for X button to hide color item
   const colorItemsDiv = Array.from(document.getElementsByClassName('remove-color'));
   colorItemsDiv.forEach((element) => element.addEventListener('click', () => {
+    // let colorProperty = element.id
+    delete model.colors[element.id];
+
+    // remove element
     element.parentNode.parentNode.removeChild(element.parentNode);
-    //let colorProperty = element.id
-    delete model.colors[element.id]
-    console.log(model)
+
+    // update colors in Sketch
+    window.postMessage('updateColors', model.colors);
   }));
 }
 
@@ -88,10 +92,6 @@ document.getElementById('drum-roll').addEventListener('click', () => {
     model.alignment.justify = false
   }
 
-  // evaluate colors and modify model
-
   // post message
   window.postMessage('runTinDrum', model.alignment);
 });
-
-//

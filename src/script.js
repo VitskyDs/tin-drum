@@ -73,6 +73,11 @@ export default function() {
     .then(res => console.log(res, 'hi'))
     .catch(err => console.log(err));
 
+  // update colors form UI
+  webContents.on('updateColors', (properties) => {
+    model.colors = properties;
+    console.log(model);
+  })
   // add a handler for a call from web content's javascript
   webContents.on('runTinDrum', (properties) => {
 
@@ -86,7 +91,7 @@ export default function() {
     model.alignment = properties;
 
     // get document colors
-    model.colors = getDocumentColors(document.colors);
+    // model.colors = getDocumentColors(document.colors);
 
     // create arrays out of alignment and color entries
     const alignmentEntries = Object.entries(model.alignment);
