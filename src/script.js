@@ -98,10 +98,8 @@ export default function() {
     selectedTextLayers.forEach(textLayer => {
 
       const originalStyleColor = textLayer.style.textColor;
-      console.log(originalStyleColor)
       // loop through alignments and go only for those that are true
       for (let i = 0; i < alignmentEntries.length; i++) {
-        console.log(originalStyleColor)
 
         // check if alignment value is true
         if (alignmentEntries[i][1]) {
@@ -122,9 +120,8 @@ export default function() {
           // end of color loop
         }
       }
-      console.log(originalStyleColor);
-      textLayer.style.textColor = originalStyleColor;
       // end of alignment loop
+      textLayer.style.textColor = originalStyleColor;
     });
     // message at the end
     if (createdStyles > 0) {
