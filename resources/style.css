@@ -29,7 +29,9 @@ body {
     -webkit-user-select: none;
     user-select: none;
 }
-
+.d-none {
+  display: none;
+}
 /* Typography */
 h1 {
     font-family: Muli-SemiBold, sans-serif;
@@ -77,12 +79,18 @@ button#drum-roll {
     width: 100%;
     box-shadow: 0 4px 16px 0 rgba(255, 0, 82, 0.1);
     transition: all 200ms ease-in-out;
-    margin: 24px 0 0 0 ;
+    margin: 8px 0 0 0 ;
 }
 
 button#drum-roll:hover {
     cursor: pointer;
     box-shadow: 0 6px 12px 0 rgba(255, 0, 82, 0.25);
+}
+
+button#drum-roll:active {
+    cursor: pointer;
+    box-shadow: 0 0 12px 0 rgba(255, 0, 82, 0.25);
+    transition: all 50ms ease-in-out;
 }
 
 /* Main */
@@ -166,7 +174,7 @@ button#sync:hover {
     display: flex;
     flex-flow: row;
     align-items: center;
-    margin: 0 0 12px 0;
+    margin: 0 0 16px 0;
 }
 
 .color-circle {
