@@ -70,7 +70,7 @@ export default function() {
   // push colors to UI
   browserWindow.webContents
     .executeJavaScript(`pushColors(${JSON.stringify(model.colors)})`)
-    .then(res => console.log(res, 'hi'))
+    .then(res => console.log(res))
     .catch(err => console.log(err));
 
   // update colors form UI
@@ -79,7 +79,7 @@ export default function() {
     console.log(model);
   })
   // add a handler for a call from web content's javascript
-  webContents.on('runTinDrum', (properties) => {
+  webContents.on('runTinDrum', (alignments) => {
 
     // count created styles
     let createdStyles = 0;
@@ -88,10 +88,7 @@ export default function() {
     reselect();
 
     // set model alignment
-    model.alignment = properties;
-
-    // get document colors
-    // model.colors = getDocumentColors(document.colors);
+    model.alignment = alignments;
 
     // create arrays out of alignment and color entries
     const alignmentEntries = Object.entries(model.alignment);
@@ -100,15 +97,16 @@ export default function() {
     // generateTextStyles function: pass the textLayer model and the model
     selectedTextLayers.forEach(textLayer => {
 
-      // let originalStyle = textLayer.style;
-
+      const originalStyleColor = textLayer.style.textColor;
+      console.log(originalStyleColor)
       // loop through alignments and go only for those that are true
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < alignmentEntries.length; i++) {
+        console.log(originalStyleColor)
 
         // check if alignment value is true
         if (alignmentEntries[i][1]) {
 
-          // loop through colors and create styles
+          // loop through colors and modify layers styles
           for (let j = 0; j < colorEntries.length; j++) {
             textLayer.style.alignment = alignmentEntries[i][0];
             textLayer.style.textColor = colorEntries[j][1];
@@ -118,12 +116,15 @@ export default function() {
               name: `${textLayer.name} / ${alignmentEntries[i][0]} / ${colorEntries[j][0]}`,
               style: textLayer.style
             });
-
+            // keep track of how many styles created
             createdStyles++;
           }
           // end of color loop
         }
       }
+      console.log(originalStyleColor);
+      textLayer.style.textColor = originalStyleColor;
+      // end of alignment loop
     });
     // message at the end
     if (createdStyles > 0) {
